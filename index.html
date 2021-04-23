@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Form</title>
+
+    <style>
+        input:focus {
+            border-color:#ff0000;
+            outline:none;
+        }
+        input:hover {
+            border-color: #0000ff;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form action="UserController.php" method="POST">
+            <label>Firstname:</label>
+            <input type="text" class="form-control" placeholder="Input Firstname here" id="firstname" name="firstname" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <label>Lastname:</label>
+            <input type="text" class="form-control" placeholder="Input Lastname here" id="lastname" name="lastname" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <label>Job Title:</label>
+            <input type="text" class="form-control" placeholder="Input Job Title here" id="job_title" name="job_title" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <label>Email:</label>
+            <input type="email" class="form-control" placeholder="Input Email here" id="email" name="email" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <label>Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="1Input 11 digits mobile number here" pattern="[0-9]{11}" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <label>Skype ID:</label>
+            <input type="text" class="form-control" placeholder="Input Skype ID here" id="skype_id" name="skype_id" required
+            onkeypress="DATAPREVIEW.output(this.value, this.id)">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="data-preview">
+       <label id="data-firstname"></label> <label id="data-lastname"></label>
+       <br>
+       <label id="data-job_title"></label><br>
+       <label id="data-email"></label><br>
+       <label id="data-mobile"></label><br>
+       <label id="data-skype_id"></label>
+    </div>
+
+    <script>
+        const DATAPREVIEW = (()=> {
+            let this_data = {};
+
+            this_data.output = (data, name) =>{
+                document.getElementById(`data-${name}`).innerHTML = data
+            }
+            return this_data;
+        })()
+        
+    </script>
+</body>
+</html>
